@@ -59,7 +59,7 @@ pipeline {
                     git config user.name "avinash995"
                     BUILD_NUMBER=${BUILD_NUMBER}
                     ls -lrt
-                    sed -i "s/replaceImageTag/${BUILD_NUMBER}/g" spring-boot-object/deployment.yml
+                    sed -i "s/replaceImageTag/${BUILD_NUMBER}/g" spring-boot-objects/deployment.yml
                     git add deployment.yml
                     git commit -m "Update deployment image to version ${BUILD_NUMBER}"
                     git push https://${GITHUB_TOKEN}@github.com/${GIT_USER_NAME}/${GIT_REPO_NAME} HEAD:main

@@ -49,7 +49,7 @@ pipeline {
     }
     stage('Update Deployment File') {
         environment {
-            GIT_REPO_NAME = "spring-boot-object"
+            GIT_REPO_NAME = "spring-boot-project"
             GIT_USER_NAME = "avinash995"
         }
         steps {
@@ -59,7 +59,7 @@ pipeline {
                     git config user.name "avinash995"
                     BUILD_NUMBER=${BUILD_NUMBER}
                     ls -lrt
-                    sed -i "s/replaceImageTag/${BUILD_NUMBER}/g" deployment.yml
+                    sed -i "s/replaceImageTag/${BUILD_NUMBER}/g" spring-boot-object/deployment.yml
                     git add deployment.yml
                     git commit -m "Update deployment image to version ${BUILD_NUMBER}"
                     git push https://${GITHUB_TOKEN}@github.com/${GIT_USER_NAME}/${GIT_REPO_NAME} HEAD:main

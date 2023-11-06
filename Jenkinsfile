@@ -49,7 +49,7 @@ pipeline {
     }
     stage('Update Deployment File') {
         environment {
-            GIT_REPO_NAME = "spring-boot-objects"
+            GIT_REPO_NAME = "spring-boot-object"
             GIT_USER_NAME = "avinash995"
         }
         steps {
